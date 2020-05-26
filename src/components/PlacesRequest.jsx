@@ -22,7 +22,8 @@ import * as Icon from "react-feather";
 
 import Layout from "./Layout";
 
-function Places() {
+function Places(props) {
+  const {isAria} = props;
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
 
@@ -116,7 +117,7 @@ function Places() {
     },
   ];
   return (
-    <Layout>
+    <Layout isAria={isAria}>
       <Card className="m-3">
         <CardBody>
           <div className="d-flex justify-content-between">

@@ -29,7 +29,7 @@ const todayTasks = [
             { id: 1, author: 'Arya Stark', text: 'Should I review the last 3 years legal documents as well?', posted_on: '4:30am', author_avatar: avatarImg2 },
             { id: 2, author: 'Gary Somya', text: '@Arya FYI..I have created some general guidelines last year.', posted_on: '3:30am', author_avatar: avatarImg3 },
         ]
-    },
+    },   
     {
         id: 2,
         title: 'iOS App home page',

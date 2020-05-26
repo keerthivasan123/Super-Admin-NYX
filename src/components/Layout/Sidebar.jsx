@@ -8,7 +8,11 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-function Sidebar() {
+function Sidebar({isAria}) {
+  let aria = false;
+  const changeAria = (e) => {
+    aria = !aria;
+  };
   return (
     <div class="left-side-menu">
       <div class="media user-profile mt-2 mb-2">
@@ -77,13 +81,13 @@ function Sidebar() {
                 <span> Admins </span>
               </a>
             </li>
-            <li className="side-nav-item">
-              <a href="/places" aria-expanded = "false">
+            { isAria ? <li className="side-nav-item" >
+              <a href="" aria-expanded = "true" className="mm-active">
                 <FeatherIcon.Map />
                 <span> Places </span>
                 <span className="menu-arrow"></span>
               </a>
-              <ul className="nav-second-level mm-collapse mm-show" aria-expanded = "true">
+              <ul className="nav-second-level mm-collapse mm-show" aria-expanded = "false">
                 <li>
                 <a href="/places">
                   <span> List </span>
@@ -95,7 +99,15 @@ function Sidebar() {
                 </a>
               </li>
               </ul>
+              </li>: <li className="side-nav-item" >
+              <a href="/places" aria-expanded = "false" className="mm-collapsed">
+                <FeatherIcon.Map />
+                <span> Places </span>
+                <span className="menu-arrow"></span>
+              </a>
+              
             </li>
+            }
             <li>
               <a href="/booking">
                 <FeatherIcon.Package />

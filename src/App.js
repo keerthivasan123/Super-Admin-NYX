@@ -36,9 +36,9 @@ function App() {
         <Route path="/calender" component={Calender} />
         <Route path="/edit-place" component={EditPlaces} />
         <Route path="/view-place" component={ViewPlaces} />
-        <Route path="/places-request" component={PlacesRequest} />
+        <Route path="/places-request" component={() => <PlacesRequest isAria={true} />} />
         <Route path="/view-place-request" component={ViewPlaceRequest} />
-        <Route path="/places" component={Places} />
+        <Route path="/places" component={() => <Places isAria={true} />}/>
         <Route path="/edit-admins" component={EditAdmins} />
         <Route path="/view-admins" component={ViewAdmins} />
         <Route path="/users" component={Users} />
