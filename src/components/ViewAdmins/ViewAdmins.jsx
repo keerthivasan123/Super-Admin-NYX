@@ -4,9 +4,7 @@ import { Row, Col, Card, CardBody, Nav, NavItem, NavLink, TabContent, TabPane } 
 import classNames from 'classnames';
 
 import UserBox from './UserBox';
-import Activities from '../ViewUsers/Activities';
-import Messages from './Messages';
-import Bookings from './Projects';
+import Places from './Places';
 
 
 class Profile extends Component {
@@ -51,25 +49,12 @@ class Profile extends Component {
                             href="#"
                             className={classNames({ active: this.state.activeTab === '1' })}
                             onClick={() => { this.toggleTab('1'); }}
-                        >Activity</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink
-                            href="#"
-                            className={classNames({ active: this.state.activeTab === '2' })}
-                            onClick={() => { this.toggleTab('2'); }}
-                        >Messages</NavLink>
+                        >Places</NavLink>
                     </NavItem>
                 </Nav>
                 <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
-                        <Activities />
-                    </TabPane>
-                    <TabPane tabId="2">
-                        <Messages />
-                    </TabPane>
-                    <TabPane tabId="5">
-                        <Bookings />
+                        <Places />
                     </TabPane>
                 </TabContent>
             </CardBody>

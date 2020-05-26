@@ -2,10 +2,14 @@ import React from "react";
 import {
   Row,
   Col,
-  Card,
+  Card, 
   CardBody,
   Input,
-} from "reactstrap";
+  UncontrolledDropdown,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
+} from "reactstrap"; 
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
   Search,
@@ -14,20 +18,14 @@ import ToolkitProvider, {
 import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
-import * as Icon from "react-feather";
+import "./booking.css";
 
-import Layout from "./Layout";
-
-function Users() {
+function Bookings() {
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
 
   function deletefn(e) {
-    window.alert("User Deleted Successfully")
-  }
-
-  function blockfn(e){
-    window.alert("User Blocked Successfully");
+    console.log(e.target, "hello");
   }
 
   const sizePerPageRenderer = ({
@@ -52,6 +50,7 @@ function Users() {
       <label className="d-inline ml-1">entries</label>
     </React.Fragment>
   );
+
   const defaultSorted = [
     {
       dataField: "id",
@@ -63,48 +62,44 @@ function Users() {
       dataField: "id",
       text: "ID",
       sort: true,
+      headerClasses: "custom-id-cell",
     },
     {
-      dataField: "name",
-      text: "Name",
+      dataField: "place",
+      text: "Place",
       sort: true,
     },
     {
-      dataField: "booking",
-      text: "Total Bookings",
+      dataField: "price",
+      text: "Price",
+      sort: true,
+      // headerStyle: { width: "10%" },
+    },
+    {
+      dataField: "fromDate",
+      text: "From Date",
       sort: true,
     },
     {
-      dataField: "lastBookedPlace",
-      text: "Last Booked Place",
+      dataField: "toDate",
+      text: "To Date",
       sort: true,
     },
-    
-    {
-      dataField: "lastBookedDate",
-      text: "Last Booked Date",
-      sort: true,
-    },
+    // {
+    //   dataField: "status",
+    //   text: "Payment Status",
+    //   sort: true,
+    // },
     {
       dataField: "actions",
       text: "Actions",
       sort: false,
       formatter: (cellContent, row) => (
         <div className="d-flex">
-          <Link to="/view-users">
+          <Link to="/view-booking">
             {" "}
             <button className="btn btn-primary mr-3">View</button>
           </Link>
-          <Link to="/edit-users">
-            {" "}
-            <button className="btn btn-secondary mr-3">Edit</button>
-          </Link>
-          <button className="btn btn-danger mr-3" onClick={deletefn}>
-            Delete
-          </button>
-          <button className="btn btn-primary mr-3" onClick={blockfn}>
-                  <Icon.Slash className="mr-1 p-1" />
-          </button>
         </div>
       ),
     },
@@ -114,46 +109,33 @@ function Users() {
     {
       id: 1,
 
-      name: "User 1",
+      place: "Kodaikanal Resort",
       price: "Rs. 40000",
-      booking: "127",
-      lastBookedPlace: "Place1",
-      lastBookedDate: "22/5/2019"
+      fromDate: "12/05/2020",
+      toDate: "25/05/2020",
     },
     {
       id: 2,
 
-      name: "User 2",
+      place: "Panama Beech House",
       price: "Rs 500000",
-      booking: "44",
-      lastBookedPlace: "Place2",
-      lastBookedDate: "27/5/2019"
+      fromDate: "25/05/2020",
+      toDate: "31/05/2020",
     },
     {
       id: 3,
 
-      name: "User 3",
+      place: "Goa Beach Resort ",
       price: "Rs.40000",
-      booking: "100",
-      lastBookedPlace: "Place3",
-      lastBookedDate: "22/8/2019"
+      fromDate: "31/05/2020",
+      toDate: "20/06/2020",
     },
   ];
+
   return (
-    <Layout>
       <Card className="m-3">
         <CardBody>
-          <div className="d-flex justify-content-between">
-            <h3 className="header-title mt-0 mb-1">Users</h3>
-            <div className="d-flex justify-content-end">
-              <Link to="/edit-users">
-                <button className="btn btn-primary">
-                  <Icon.Plus className="mr-1 p-1" />
-                  Add Users
-                </button>
-              </Link>
-            </div>
-          </div>
+          <h3 className="header-title mt-0 mb-1">Places</h3>
           <p className="sub-header"></p>
 
           <ToolkitProvider
@@ -184,6 +166,7 @@ function Users() {
                   {...props.baseProps}
                   bordered={false}
                   defaultSorted={defaultSorted}
+                  condensed={true}
                   pagination={paginationFactory({
                     sizePerPage: 5,
                     sizePerPageRenderer: sizePerPageRenderer,
@@ -194,15 +177,14 @@ function Users() {
                       { text: "All", value: records.length },
                     ],
                   })}
-                  wrapperClasses="table-responsive"
+                  wrapperClasses="table-responsive table"
                 />
               </React.Fragment>
             )}
           </ToolkitProvider>
         </CardBody>
       </Card>
-    </Layout>
   );
 }
 
-export default Users;
+export default Bookings;

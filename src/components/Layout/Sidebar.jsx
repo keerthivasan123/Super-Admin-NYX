@@ -69,6 +69,7 @@ function Sidebar() {
                 <FeatherIcon.Users />
                 <span> Users </span>
               </a>
+              
             </li>
             <li>
               <a href="/admins">
@@ -76,11 +77,24 @@ function Sidebar() {
                 <span> Admins </span>
               </a>
             </li>
-            <li>
-              <a href="/places">
+            <li className="side-nav-item">
+              <a href="/places" aria-expanded = "false">
                 <FeatherIcon.Map />
                 <span> Places </span>
+                <span className="menu-arrow"></span>
               </a>
+              <ul className="nav-second-level mm-collapse mm-show" aria-expanded = "true">
+                <li>
+                <a href="/places">
+                  <span> List </span>
+                </a>
+              </li>
+              <li>
+                <a href="/places-request">
+                  <span> View Request </span>
+                </a>
+              </li>
+              </ul>
             </li>
             <li>
               <a href="/booking">
@@ -89,7 +103,7 @@ function Sidebar() {
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="/support">
                 <FeatherIcon.Smile />
                 <span> Support</span>
               </a>

@@ -77,6 +77,11 @@ function Bookings() {
       // headerStyle: { width: "10%" },
     },
     {
+      dataField: "admin",
+      text: "Admin/Owner",
+      sort: true
+    },
+    {
       dataField: "price",
       text: "Price",
       sort: true,
@@ -119,6 +124,7 @@ function Bookings() {
       place: "Kodaikanal Resort",
       user: "John",
       price: "Rs. 40000",
+      admin: "Admin1",
       fromDate: "12/05/2020",
       toDate: "25/05/2020",
     },
@@ -128,6 +134,7 @@ function Bookings() {
       place: "Panama Beech House",
       user: "Chris",
       price: "Rs 500000",
+      admin: "Admin2",
       fromDate: "25/05/2020",
       toDate: "31/05/2020",
     },
@@ -137,6 +144,7 @@ function Bookings() {
       place: "Goa Beach Resort ",
       user: "Hemsworth",
       price: "Rs.40000",
+      admin: "Admin3",
       fromDate: "31/05/2020",
       toDate: "20/06/2020",
     },

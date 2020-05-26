@@ -24,10 +24,12 @@ function Admins() {
 
   function deletefn(e) {
     console.log(e.target, "hello");
+    window.alert("User Deleted Successfully")
   }
 
   function Blockfn(e) {
     console.log(e.target, "Blocked");
+    window.alert("User Blocked Successfully")
   }
 
   const sizePerPageRenderer = ({
@@ -70,6 +72,21 @@ function Admins() {
       sort: true,
     },
     {
+      dataField: "noOfPlaces",
+      text: "No. Of Places",
+      sort: true,
+    },
+    {
+      dataField: "totalRevenue",
+      text: "Total Revenue",
+      sort: true,
+    },
+    {
+      dataField: "currentRevenue",
+      text: "Current Month Revenue",
+      sort: true,
+    },
+    {
       dataField: "actions",
       text: "Actions",
       sort: false,
@@ -79,7 +96,7 @@ function Admins() {
             {" "}
             <button className="btn btn-primary mr-3">View</button>
           </Link>
-          <Link to="/edit-place">
+          <Link to="/edit-admins">
             {" "}
             <button className="btn btn-secondary mr-3">Edit</button>
           </Link>
@@ -99,16 +116,25 @@ function Admins() {
       id: 1,
 
       name: "Admin 1",
+      noOfPlaces: "80",
+      totalRevenue: "Rs.585888",
+      currentRevenue: "Rs.85888"
     },
     {
       id: 2,
 
       name: "Admin 2",
+      noOfPlaces: "70",
+      totalRevenue: "Rs.5858488",
+      currentRevenue: "Rs.852888"
     },
     {
       id: 3,
 
       name: "Admin 3 ",
+      noOfPlaces: "60",
+      totalRevenue: "Rs.5875888",
+      currentRevenue: "Rs.858878"
     },
   ];
   return (

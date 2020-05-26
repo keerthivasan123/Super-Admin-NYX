@@ -18,12 +18,17 @@ import EditUsers from "./components/EditUsers";
 import ViewAdmins from "./components/ViewAdmins/ViewAdmins";
 import ViewUsers from "./components/ViewUsers/ViewUsers";
 import Contact from "./components/Contact";
+import PlacesRequest from "./components/PlacesRequest.jsx";
+import ViewPlaceRequest from "./components/ViewPlaceRequest";
+import Support from "./components/Support";
+
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/support" component={Support} />
         <Route path="/invoice" component={Invoice} />
         <Route path="/edit-booking" component={EditBooking} />
         <Route path="/view-booking" component={ViewBooking} />
@@ -31,6 +36,8 @@ function App() {
         <Route path="/calender" component={Calender} />
         <Route path="/edit-place" component={EditPlaces} />
         <Route path="/view-place" component={ViewPlaces} />
+        <Route path="/places-request" component={PlacesRequest} />
+        <Route path="/view-place-request" component={ViewPlaceRequest} />
         <Route path="/places" component={Places} />
         <Route path="/edit-admins" component={EditAdmins} />
         <Route path="/view-admins" component={ViewAdmins} />

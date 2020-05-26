@@ -5,6 +5,10 @@ import {
   Card,
   CardBody,
   Input,
+  UncontrolledDropdown,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
 } from "reactstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
@@ -18,16 +22,12 @@ import * as Icon from "react-feather";
 
 import Layout from "./Layout";
 
-function Users() {
+function Places() {
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
 
-  function deletefn(e) {
-    window.alert("User Deleted Successfully")
-  }
-
-  function blockfn(e){
-    window.alert("User Blocked Successfully");
+  function approveFun(e) {
+    window.alert("Approved");
   }
 
   const sizePerPageRenderer = ({
@@ -70,19 +70,8 @@ function Users() {
       sort: true,
     },
     {
-      dataField: "booking",
-      text: "Total Bookings",
-      sort: true,
-    },
-    {
-      dataField: "lastBookedPlace",
-      text: "Last Booked Place",
-      sort: true,
-    },
-    
-    {
-      dataField: "lastBookedDate",
-      text: "Last Booked Date",
+      dataField: "price",
+      text: "Price",
       sort: true,
     },
     {
@@ -91,19 +80,12 @@ function Users() {
       sort: false,
       formatter: (cellContent, row) => (
         <div className="d-flex">
-          <Link to="/view-users">
+          <Link to="/view-place-request">
             {" "}
-            <button className="btn btn-primary mr-3">View</button>
+            <button className="btn btn-danger mr-3">View</button>
           </Link>
-          <Link to="/edit-users">
-            {" "}
-            <button className="btn btn-secondary mr-3">Edit</button>
-          </Link>
-          <button className="btn btn-danger mr-3" onClick={deletefn}>
-            Delete
-          </button>
-          <button className="btn btn-primary mr-3" onClick={blockfn}>
-                  <Icon.Slash className="mr-1 p-1" />
+          <button className="btn btn-primary mr-3" onClick={approveFun}>
+            Approve
           </button>
         </div>
       ),
@@ -114,29 +96,23 @@ function Users() {
     {
       id: 1,
 
-      name: "User 1",
+      name: "Kodaikanal Resort",
       price: "Rs. 40000",
       booking: "127",
-      lastBookedPlace: "Place1",
-      lastBookedDate: "22/5/2019"
     },
     {
       id: 2,
 
-      name: "User 2",
+      name: "Panama Beech House",
       price: "Rs 500000",
       booking: "44",
-      lastBookedPlace: "Place2",
-      lastBookedDate: "27/5/2019"
     },
     {
       id: 3,
 
-      name: "User 3",
+      name: "Goa Beach Resort ",
       price: "Rs.40000",
       booking: "100",
-      lastBookedPlace: "Place3",
-      lastBookedDate: "22/8/2019"
     },
   ];
   return (
@@ -144,15 +120,8 @@ function Users() {
       <Card className="m-3">
         <CardBody>
           <div className="d-flex justify-content-between">
-            <h3 className="header-title mt-0 mb-1">Users</h3>
-            <div className="d-flex justify-content-end">
-              <Link to="/edit-users">
-                <button className="btn btn-primary">
-                  <Icon.Plus className="mr-1 p-1" />
-                  Add Users
-                </button>
-              </Link>
-            </div>
+            <h3 className="header-title mt-0 mb-1">Places Requests</h3>
+            
           </div>
           <p className="sub-header"></p>
 
@@ -205,4 +174,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Places;

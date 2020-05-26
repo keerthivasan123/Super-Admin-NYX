@@ -1,0 +1,11 @@
+.custom-id-cell {
+    width: 6%;
+    color: red;
+  }
+  
+  .max-width-100 {
+    max-width: 100%;
+    white-space: nowrap;
+    table-layout: fixed;
+  }
+  
