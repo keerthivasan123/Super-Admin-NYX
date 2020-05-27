@@ -81,8 +81,8 @@ function Sidebar({isAria}) {
                 <span> Admins </span>
               </a>
             </li>
-            { isAria ? <li className="side-nav-item" >
-              <a href="" aria-expanded = "true" className="mm-active">
+            { isAria ? <li className="mm-active" >
+              <a href="/" aria-expanded = "true" className="active">
                 <FeatherIcon.Map />
                 <span> Places </span>
                 <span className="menu-arrow"></span>
