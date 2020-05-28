@@ -23,9 +23,16 @@ function Places() {
 
   function deletefn(e) {
     swal({
-      text: "Place Deleted Successfully",
-      icon: "success",
+      title: "Are you sure?",
+      text: "You want to Delete the User?",
+      icon: "warning",
+      dangerMode: true,
     })
+    .then(willDelete => {
+      if (willDelete) {
+        swal("Deleted!", "User Deleted Successfully", "success");
+      }
+    });
   }
 
   const sizePerPageRenderer = ({
@@ -39,7 +46,7 @@ function Places() {
         type="select"
         name="select"
         id="no-entries"
-        className="custom-select custom-select-sm d-inline col-1"
+        className="custom-select custom-select-sm d-inline col-2"
         defaultValue={currSizePerPage}
         onChange={(e) => onSizePerPageChange(e.target.value)}
       >

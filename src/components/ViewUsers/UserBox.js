@@ -21,8 +21,8 @@ const UserBox = () => {
                             </Progress> */}
 
                             <div className="mt-2">
-                            <button type="button" className="btn btn-primary btn-sm mr-1">Follow</button>
-                            <button type="button" className="btn btn-white btn-sm">Message</button>
+                            {/* <button type="button" className="btn btn-primary btn-sm mr-1">Follow</button>
+                            <button type="button" className="btn btn-white btn-sm">Message</button> */}
                             </div>
                         </div>
 

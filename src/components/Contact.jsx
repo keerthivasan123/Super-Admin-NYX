@@ -41,7 +41,7 @@ function Contact() {
         type="select"
         name="select"
         id="no-entries"
-        className="custom-select custom-select-sm d-inline col-1"
+        className="custom-select custom-select-sm d-inline col-2"
         defaultValue={currSizePerPage}
         onChange={(e) => onSizePerPageChange(e.target.value)}
       >

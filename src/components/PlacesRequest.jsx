@@ -10,7 +10,7 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Label,
+  Table,
   FormGroup,
   Form,
 } from "reactstrap";
@@ -72,7 +72,7 @@ function Places(props) {
         type="select"
         name="select"
         id="no-entries"
-        className="custom-select custom-select-sm d-inline col-1"
+        className="custom-select custom-select-sm d-inline col-2"
         defaultValue={currSizePerPage}
         onChange={(e) => onSizePerPageChange(e.target.value)}
       >
@@ -223,26 +223,39 @@ function Places(props) {
       <Modal isOpen={modal} toggle={toggle} centered={true} size={"xl"}>
         <ModalHeader toggle={toggle}>Feedback</ModalHeader>
         <ModalBody className="table-responsive">
-          <Form>
-          <div className="card" style={shadow}>
-                    <div className="card-body">
-                      <FormGroup>
-                        <Input
+        <Table className="mb-0 table-bordered table-striped" responsive>
+            <tbody>
+              <tr>
+                <th>Id</th>
+                <td>01</td>
+              </tr>
+              <tr>
+                <th>Place Name</th>
+                <td>Goa Beach Resort</td>
+              </tr>
+              <tr>
+                <th>Admin</th>
+                <td>Admin 1</td>
+              </tr>
+              <tr>
+                <th>Requested Date</th>
+                <td>22/5/2020</td>
+              </tr>
+              <tr>
+                <th>Feedback</th>
+                <td>
+                <Input
                           type="textarea"
                           name="text"
                           id="exampleText"
                           rows="5"
-                        />
-                      </FormGroup>
-                    </div>
-                  </div>
-          </Form>
-          
+                />
+                </td>
+              </tr>
+            </tbody>
+          </Table>
         </ModalBody>
         <ModalFooter>
-          {/* <Button color="primary" onClick={Submitfn}>
-            Submit
-          </Button> */}
           <Button color="secondary" className="ml-1" onClick={toggle}>
             Cancel
           </Button><Button color="primary" className="ml-1" onClick={denyFun}>
