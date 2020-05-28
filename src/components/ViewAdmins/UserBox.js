@@ -12,24 +12,46 @@ const UserBox = () => {
                         <div className="text-center mt-3">
                             <img src={profileImg} alt=""
                                 className="avatar-lg rounded-circle" />
-                            <h5 className="mt-2 mb-0">Shreyu N</h5>
-                            <h6 className="text-muted font-weight-normal mt-2 mb-0">User Experience Specialist</h6>
-                            <h6 className="text-muted font-weight-normal mt-1 mb-4">San Francisco, CA</h6>
+                            <h5 className="mt-2 mb-0">Admin 1</h5>
+                            {/* <h6 className="text-muted font-weight-normal mt-2 mb-0">User Experience Specialist</h6>
+                            <h6 className="text-muted font-weight-normal mt-1 mb-4">San Francisco, CA</h6> */}
 
-                            <Progress className="mb-4" value={60} color="success" style={{ 'height': '14px' }}>
+                            {/* <Progress className="mb-4" value={60} color="success" style={{ 'height': '14px' }}>
                                 <span className="font-size-12 font-weight-bold">Your Profile is <span className="font-size-11">60%</span> completed</span>
-                            </Progress>
+                            </Progress> */}
 
+                            <div className="mt-2">
                             <button type="button" className="btn btn-primary btn-sm mr-1">Follow</button>
                             <button type="button" className="btn btn-white btn-sm">Message</button>
+                            </div>
                         </div>
 
-                        <div className="mt-5 pt-2 border-top">
+                        {/* <div className="mt-5 pt-2 border-top">
                             <h4 className="mb-3 font-size-15">About</h4>
                             <p className="text-muted mb-4">Hi I'm Shreyu. I am user experience and user
                                 interface designer. I have been working on UI & UX since last 10 years.</p>
+                        </div> */}
+                        <div className="mt-3 pt-2 border-top">
+                            <h4 className="mb-3 font-size-15">Information</h4>
+                            <div className="table-responsive">
+                                <table className="table table-borderless mb-0 text-muted">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Total Places</th>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Total Revenue</th>
+                                            <td>Rs.54486</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Current Month Revenue</th>
+                                            <td>Rs.3255</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
                         <div className="mt-3 pt-2 border-top">
                             <h4 className="mb-3 font-size-15">Contact Information</h4>
                             <div className="table-responsive">
@@ -52,14 +74,14 @@ const UserBox = () => {
                                 </table>
                             </div>
                         </div>
-                        <div className="mt-3 pt-2 border-top">
+                        {/* <div className="mt-3 pt-2 border-top">
                             <h4 className="mb-3 font-size-15">Skills</h4>
                             <label className="badge badge-soft-primary mr-1">UI design</label>
                             <label className="badge badge-soft-primary mr-1">UX</label>
                             <label className="badge badge-soft-primary mr-1">Sketch</label>
                             <label className="badge badge-soft-primary mr-1">Photoshop</label>
                             <label className="badge badge-soft-primary mr-1">Frontend</label>
-                        </div>
+                        </div> */}
                     </Col>
                 </Row>
             </CardBody>

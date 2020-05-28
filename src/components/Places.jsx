@@ -19,6 +19,7 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
 import * as Icon from "react-feather";
+import swal from "sweetalert";
 
 import Layout from "./Layout";
 
@@ -27,7 +28,10 @@ function Places(props) {
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
   function deletefn(e) {
-    console.log(e.target, "hello");
+    swal({
+      text: "Place Deleted Successfully",
+      icon: "success",
+    })
   }
 
   const sizePerPageRenderer = ({

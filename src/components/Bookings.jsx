@@ -154,7 +154,7 @@ function Bookings() {
     <Layout>
       <Card className="m-3">
         <CardBody>
-          <h3 className="header-title mt-0 mb-1">Places</h3>
+          <h3 className="header-title mt-0 mb-1">Bookings</h3>
           <p className="sub-header"></p>
 
           <ToolkitProvider

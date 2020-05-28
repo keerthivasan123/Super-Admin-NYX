@@ -1,14 +1,18 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {
   Row,
   Col,
   Card,
   CardBody,
   Input,
-  UncontrolledDropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Label,
+  FormGroup,
+  Form,
 } from "reactstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
@@ -19,16 +23,42 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
 import * as Icon from "react-feather";
+import swal from "sweetalert";
 
 import Layout from "./Layout";
 
 function Places(props) {
+  const [modal, setModal] = useState(false);
   const {isAria} = props;
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
+  const shadow = {
+    boxShadow: `  inset 0 0 30px rgba(55, 84, 170,0),
+    inset 0 0 20px rgba(255, 255, 255,0),
+    7px 7px 15px rgba(55, 84, 170,.15),
+    -7px -7px 20px rgba(255, 255, 255,1),
+    inset 0px 0px 4px rgba(255, 255, 255,.2)`,
+    borderRadius: "10px",
+  };
+
+  function toggle() {
+    setModal(!modal);
+  }
 
   function approveFun(e) {
-    window.alert("Approved");
+    swal({
+      text: "Approved",
+      icon: "success",
+    })
+  }
+
+  function denyFun(e) {
+    swal({
+      text: "Request Denyed",
+      icon: "success",
+    }).then(() => {
+      toggle();
+    });
   }
 
   const sizePerPageRenderer = ({
@@ -67,7 +97,17 @@ function Places(props) {
     },
     {
       dataField: "name",
-      text: "Name",
+      text: "Place Name",
+      sort: true,
+    },
+    {
+      dataField: "admin",
+      text: "Admin",
+      sort: true,
+    },
+    {
+      dataField: "date",
+      text: "Requested Date",
       sort: true,
     },
     {
@@ -85,8 +125,11 @@ function Places(props) {
             {" "}
             <button className="btn btn-danger mr-3">View</button>
           </Link>
-          <button className="btn btn-primary mr-3" onClick={approveFun}>
+          <button className="btn btn-success mr-3" onClick={approveFun}>
             Approve
+          </button>
+          <button className="btn btn-primary mr-3" onClick={toggle}>
+            Deny
           </button>
         </div>
       ),
@@ -98,6 +141,8 @@ function Places(props) {
       id: 1,
 
       name: "Kodaikanal Resort",
+      admin: "Admin1",
+      date: "22/4/2019",
       price: "Rs. 40000",
       booking: "127",
     },
@@ -105,6 +150,8 @@ function Places(props) {
       id: 2,
 
       name: "Panama Beech House",
+      admin: "Admin2",
+      date: "25/4/2019",
       price: "Rs 500000",
       booking: "44",
     },
@@ -112,6 +159,8 @@ function Places(props) {
       id: 3,
 
       name: "Goa Beach Resort ",
+      admin: "Admin3",
+      date: "23/4/2019",
       price: "Rs.40000",
       booking: "100",
     },
@@ -171,6 +220,36 @@ function Places(props) {
           </ToolkitProvider>
         </CardBody>
       </Card>
+      <Modal isOpen={modal} toggle={toggle} centered={true} size={"xl"}>
+        <ModalHeader toggle={toggle}>Feedback</ModalHeader>
+        <ModalBody className="table-responsive">
+          <Form>
+          <div className="card" style={shadow}>
+                    <div className="card-body">
+                      <FormGroup>
+                        <Input
+                          type="textarea"
+                          name="text"
+                          id="exampleText"
+                          rows="5"
+                        />
+                      </FormGroup>
+                    </div>
+                  </div>
+          </Form>
+          
+        </ModalBody>
+        <ModalFooter>
+          {/* <Button color="primary" onClick={Submitfn}>
+            Submit
+          </Button> */}
+          <Button color="secondary" className="ml-1" onClick={toggle}>
+            Cancel
+          </Button><Button color="primary" className="ml-1" onClick={denyFun}>
+            Confirm Deny
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Layout>
   );
 }

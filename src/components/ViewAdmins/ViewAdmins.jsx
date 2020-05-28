@@ -34,29 +34,16 @@ class Profile extends Component {
             <Layout>
                 <React.Fragment>
 
-<Row>
+<Row className="pt-3">
     <Col lg={3}>
-        {/* User information */}
         <UserBox />
     </Col>
 
     <Col lg={9}>
         <Card>
             <CardBody>
-                <Nav className="nav nav-pills navtab-bg nav-justified">
-                    <NavItem>
-                        <NavLink
-                            href="#"
-                            className={classNames({ active: this.state.activeTab === '1' })}
-                            onClick={() => { this.toggleTab('1'); }}
-                        >Places</NavLink>
-                    </NavItem>
-                </Nav>
-                <TabContent activeTab={this.state.activeTab}>
-                    <TabPane tabId="1">
-                        <Places />
-                    </TabPane>
-                </TabContent>
+                <h1 style={{textAlign: "center"}}> Places</h1>
+                <Places/>
             </CardBody>
         </Card>
     </Col>

@@ -5,10 +5,6 @@ import {
   Card, 
   CardBody,
   Input,
-  UncontrolledDropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
 } from "reactstrap"; 
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
@@ -164,6 +160,7 @@ function Bookings() {
 
                 <BootstrapTable
                   {...props.baseProps}
+                  style={{tableLayout: "auto"}}
                   bordered={false}
                   defaultSorted={defaultSorted}
                   condensed={true}
@@ -177,7 +174,7 @@ function Bookings() {
                       { text: "All", value: records.length },
                     ],
                   })}
-                  wrapperClasses="table-responsive table"
+                  wrapperClasses="table-responsive table "
                 />
               </React.Fragment>
             )}

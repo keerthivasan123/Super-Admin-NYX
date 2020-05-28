@@ -2,14 +2,10 @@ import React from "react";
 import {
   Row,
   Col,
-  Card,
+  Card, 
   CardBody,
   Input,
-  UncontrolledDropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-} from "reactstrap";
+} from "reactstrap"; 
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
   Search,
@@ -18,13 +14,18 @@ import ToolkitProvider, {
 import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
-import * as Icon from "react-feather";
+import "./places.css";
+import swal from "sweetalert";
 
 function Places() {
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
+
   function deletefn(e) {
-    console.log(e.target, "hello");
+    swal({
+      text: "Place Deleted Successfully",
+      icon: "success",
+    })
   }
 
   const sizePerPageRenderer = ({
@@ -49,6 +50,7 @@ function Places() {
       <label className="d-inline ml-1">entries</label>
     </React.Fragment>
   );
+
   const defaultSorted = [
     {
       dataField: "id",
@@ -121,20 +123,11 @@ function Places() {
       booking: "100",
     },
   ];
+
   return (
       <Card className="m-3">
         <CardBody>
-          <div className="d-flex justify-content-between">
-            <h3 className="header-title mt-0 mb-1">Places</h3>
-            <div className="d-flex justify-content-end">
-              <Link to="/edit-place">
-                <button className="btn btn-primary">
-                  <Icon.Plus className="mr-1 p-1" />
-                  Add Place
-                </button>
-              </Link>
-            </div>
-          </div>
+          <h3 className="header-title mt-0 mb-1">Places</h3>
           <p className="sub-header"></p>
 
           <ToolkitProvider
@@ -163,8 +156,10 @@ function Places() {
 
                 <BootstrapTable
                   {...props.baseProps}
+                  style={{tableLayout: "auto"}}
                   bordered={false}
                   defaultSorted={defaultSorted}
+                  condensed={true}
                   pagination={paginationFactory({
                     sizePerPage: 5,
                     sizePerPageRenderer: sizePerPageRenderer,
@@ -175,7 +170,7 @@ function Places() {
                       { text: "All", value: records.length },
                     ],
                   })}
-                  wrapperClasses="table-responsive"
+                  wrapperClasses="table-responsive table "
                 />
               </React.Fragment>
             )}

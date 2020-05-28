@@ -15,6 +15,7 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
 import * as Icon from "react-feather";
+import swal from "sweetalert";
 
 import Layout from "./Layout";
 
@@ -23,11 +24,17 @@ function Users() {
   const { ExportCSVButton } = CSVExport;
 
   function deletefn(e) {
-    window.alert("User Deleted Successfully")
+    swal({
+      text: "User Deleted Successfully",
+      icon: "success",
+    })
   }
 
   function blockfn(e){
-    window.alert("User Blocked Successfully");
+    swal({
+      text: "User Blocked Successfully",
+      icon: "success",
+    })
   }
 
   const sizePerPageRenderer = ({

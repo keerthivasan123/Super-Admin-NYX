@@ -34,7 +34,7 @@ class Profile extends Component {
             <Layout>
                 <React.Fragment>
 
-<Row>
+<Row style={{marginTop:'20px'}}>
     <Col lg={3}>
         {/* User information */}
         <UserBox />
@@ -43,20 +43,8 @@ class Profile extends Component {
     <Col lg={9}>
         <Card>
             <CardBody>
-                <Nav className="nav nav-pills navtab-bg nav-justified">
-                    <NavItem>
-                        <NavLink
-                            href="#"
-                            className={classNames({ active: this.state.activeTab === '1' })}
-                            onClick={() => { this.toggleTab('1'); }}
-                        >Bookings</NavLink>
-                    </NavItem>
-                </Nav>
-                <TabContent activeTab={this.state.activeTab}>
-                    <TabPane tabId="1">
-                        <Bookings />
-                    </TabPane>
-                </TabContent> 
+                <h2 style={{textAlign: "center"}}>Bookings</h2>
+                <Bookings/>
             </CardBody>
         </Card>
     </Col>
