@@ -33,6 +33,10 @@ function Places(props) {
       text: "You want to Delete the User?",
       icon: "warning",
       dangerMode: true,
+      buttons: {
+        cancel: true,
+        confirm: true,
+      },
     })
     .then(willDelete => {
       if (willDelete) {

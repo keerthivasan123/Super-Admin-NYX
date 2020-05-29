@@ -29,6 +29,10 @@ function Admins() {
       text: "You want to Delete the User?",
       icon: "warning",
       dangerMode: true,
+      buttons: {
+        cancel: true,
+        confirm: true,
+      },
     })
     .then(willDelete => {
       if (willDelete) {
@@ -39,9 +43,20 @@ function Admins() {
 
   function Blockfn(e){
     swal({
-      text: "Admin Blocked Successfully",
-      icon: "success",
+      title: "Are you sure?",
+      text: "You want to Block the Admin?",
+      icon: "warning",
+      dangerMode: true,
+      buttons: {
+        cancel: true,
+        confirm: true,
+      },
     })
+    .then(willReport => {
+      if (willReport) {
+        swal("Blocked!", "Admin Blocked Successfully", "success");
+      }
+    });
   }
   const sizePerPageRenderer = ({
     options,

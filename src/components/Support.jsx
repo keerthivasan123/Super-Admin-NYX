@@ -22,10 +22,6 @@ function Places() {
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
 
-  function deletefn(e) {
-    console.log(e.target, "hello");
-  }
-
   const sizePerPageRenderer = ({
     options,
     currSizePerPage,

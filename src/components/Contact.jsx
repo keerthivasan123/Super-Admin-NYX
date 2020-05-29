@@ -26,10 +26,6 @@ function Contact() {
   const { SearchBar } = Search;
   const { ExportCSVButton } = CSVExport;
 
-  function deletefn(e) {
-    console.log(e.target, "hello");
-  }
-
   const sizePerPageRenderer = ({
     options,
     currSizePerPage,
@@ -65,6 +61,11 @@ function Contact() {
       sort: true,
     },
     {
+      dataField: "name",
+      text: "Name",
+      sort: true,
+    },
+    {
       dataField: "subject",
       text: "Subject",
       sort: true,
@@ -74,37 +75,37 @@ function Contact() {
       text: "Message",
       sort: true,
     },
-    {
-      dataField: "actions",
-      text: "Attached files",
-      sort: false,
-      formatter: (cellContent, row) => (
-        <div className="d-flex"> 
-          <Link to="">
-            {" "}
-            <button className="btn btn-primary mr-3">View</button>
-          </Link>
-        </div>
-      ),
-    },
+    // {
+    //   dataField: "actions",
+    //   text: "Attached files",
+    //   sort: false,
+    //   formatter: (cellContent, row) => (
+    //     <div className="d-flex"> 
+    //       <Link to="">
+    //         {" "}
+    //         <button className="btn btn-primary mr-3">View</button>
+    //       </Link>
+    //     </div>
+    //   ),
+    // },
   ];
 
   const records = [
     {
       id: 1,
-
+      name: "Name1",
       subject: "Kodaikanal Resort",
       message: "sdfsdf sadfsdfd dsf",
     },
     {
       id: 2,
-
+      name: "Name2",
       subject: "Kodaikanal Resort",
       message: "sdfsdf sadfsdfd dsf",
     },
     {
       id: 3,
-
+      name: "Name3",
       subject: "Kodaikanal Resort",
       message: "sdfsdf sadfsdfd dsf",
     },

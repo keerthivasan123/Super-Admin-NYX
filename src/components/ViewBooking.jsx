@@ -52,6 +52,10 @@ function ViewBooking() {
                   <td>Chris Hemsworth</td>
                 </tr>
                 <tr>
+                  <th>Admin</th>
+                  <td>Admin 1</td>
+                </tr>
+                <tr>
                   <th>Price</th>
                   <td>Rs.40000</td>
                 </tr>

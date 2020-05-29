@@ -29,6 +29,10 @@ function Users() {
       text: "You want to Delete the User?",
       icon: "warning",
       dangerMode: true,
+      buttons: {
+        cancel: true,
+        confirm: true,
+      },
     })
     .then(willDelete => {
       if (willDelete) {
@@ -39,9 +43,20 @@ function Users() {
 
   function blockfn(e){
     swal({
-      text: "User Blocked Successfully",
-      icon: "success",
+      title: "Are you sure?",
+      text: "You want to Block the User?",
+      icon: "warning",
+      dangerMode: true,
+      buttons: {
+        cancel: true,
+        confirm: true,
+      },
     })
+    .then(willReport => {
+      if (willReport) {
+        swal("Blocked!", "User Blocked Successfully", "success");
+      }
+    });
   }
 
   const sizePerPageRenderer = ({
